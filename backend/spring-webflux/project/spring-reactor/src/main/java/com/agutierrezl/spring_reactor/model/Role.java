@@ -1,29 +1,22 @@
 package com.agutierrezl.spring_reactor.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.time.LocalDate;
+
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Document(collection = "dishes")
-public class Dish {
+@Document(collection = "roles")
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class Role {
 
     @Id
+    @EqualsAndHashCode.Include
     private String id;
 
-    @Field(name = "name")
+    @Field
     private String name;
-
-    @Field
-    private Double price;
-
-    @Field
-    private Boolean status;
-
-
 }
